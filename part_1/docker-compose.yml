@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  jupyter:
+    image: quay.io/jupyter/datascience-notebook:latest
+    volumes:
+      - ${HOST_WORK_DIR}:/home/jovyan/work
+    ports:
+      - "8888:8888"

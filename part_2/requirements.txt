@@ -1,0 +1,7 @@
+fastapi 
+"uvicorn[standard]" 
+llama-index-core
+llama-index-llms-openai 
+openai 
+pydantic-settings
+# going to improve with pip-compile later so we lock versions used. See part 3
