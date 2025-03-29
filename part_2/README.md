@@ -30,26 +30,22 @@ In Part 2, we introduce a FastAPI server that handles content creation requests.
 
 Clone the Repository:
 
-git clone https://github.com/yourusername/generative-ai-content-assistant.git
-cd generative-ai-content-assistant/part2
+`git clone https://github.com/MarkellRichards/content_creator_ai_series`
+
+`cd content_creator_ai_series/part2 `
 
 Create a Virtual Environment:
 
-python -m venv venv
-source venv/bin/activate # On Windows use `venv\Scripts\activate`
+`python -m venv venv`
+`source venv/bin/activate`
 
 Install Dependencies:
 
-pip install -r requirements.txt
-
-Environment Variables: Create a .env file in the project root with your API keys as shown below:
-
-TAVILY_SEARCH_API_KEY=your_tavily_api_key
-OPENAI_API_KEY=your_openai_api_key
+`pip install -r requirements.txt`
 
 Run the FastAPI Server:
 
-uvicorn app.main:app --reload
+`uvicorn app.main:app --reload`
 
 ## Workflow Explanation
 
