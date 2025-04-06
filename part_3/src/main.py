@@ -5,7 +5,6 @@ from src.core.logs import logger
 from src.content.api import router as content_router
 
 app = FastAPI(version=version)
-# apply middleware
 app.include_router(core_router)
 app.include_router(content_router)
 

@@ -25,7 +25,6 @@ dependencies = [
     "alembic",
     "psycopg2-binary",
     "boto3",
-    "prometheus_fastapi_instrumentator",
     "asyncpg",
 ]
 

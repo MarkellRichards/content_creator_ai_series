@@ -14,12 +14,12 @@
 
 In Part 3, we expand the FastAPI implementation from part 2. I noted quite a few limitations from the previous approach. Primarily the user was waiting for feedback and we were storing artifacts from the workflows local to the server. In this implementation we add websockets to stream events to the user throughout the workflows lifecycle. We create workflow, blog_posts, social_media_posts, and images entities in Postgres for later retrieval. We also upload image files generated from OpenAI's Dall-e-3 in Minio object storage.
 
-Furthermore, the code is structured around domains, consiting of core and content. Core domain holds global files that impact the server hollistacilly (middleware) or contains logic to be used in other domains such as database session, logging function, and lastly a health check for later k8s deployment. The content domain uses DDD tactical patterns: Repostiory and Service to cleanly abstract code. Each domain (next up will be users) will follow the same general structure:
+Furthermore, The code is structured around domains consisting of core and content. The core domain includes files that impact the server holistically (middleware) or contain logic to be used in other domains, such as database sessions, logging function, and a health check for later k8s deployment. The content domain uses DDD tactical patterns: Repository and Services to cleanly abstract code. Each domain (next up will be users) will follow the same general structure:
 
 - Models: SQLAlchemy models
 - Schema: Pydantic models
 - Repositories: Interface and Repository class responsible for data access
-- Services: Services files that contain businessl logic
+- Services: Services files that contain business logic
 
 Content specifically has:
 
