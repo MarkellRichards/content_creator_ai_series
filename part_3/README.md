@@ -26,6 +26,8 @@ Content specifically has:
 - Prompts: central place to store prompts. For now, other tools later in the series will address prompt versioning and a more robust approach.
 - Workflows: contains workflows.
 
+Lastly, we added alembic to track the evolution of our database models.
+
 ## API Endpoints
 
 ## `ws://<address>/content`

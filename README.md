@@ -52,6 +52,16 @@ Part 2 represents the transition of our prototype into a deployable application 
 
 The goal of Part 2 is to build a robust server-side solution that maintains the functionalities of the prototype while being ready for live usage.
 
+### Part 3: FastAPI, Websockets, Persistent Storage
+
+Part 3 builds upon our initial FastAPI implementation and adds a suite of enhancements:
+
+- Websockets to stream updates to user throughout workflow
+- Postgres to store workflows, blog posts, social media posts, and images url
+- Minio to store the image file - url saved in postgres for later retrieval
+- DDD tactical patterns and domain oriented folder structure
+- Alembic for database migrations
+
 ## Contributing
 
 Contributions are welcome! If you have suggestions for improvements or want to contribute new features, please follow these steps:
