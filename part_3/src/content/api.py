@@ -6,7 +6,6 @@ from src.core.database import get_db
 from src.content.workflows.advanced_workflow import AdvancedWorkflow
 from src.settings.config import get_settings, Settings
 from llama_index.core.workflow.handler import WorkflowHandler
-from llama_index.core.workflow.events import InputRequiredEvent
 from src.content.workflows.advanced_workflow import ProgressEvent
 
 from src.content.repositories.workflow.workflow_repository import WorkflowRepository
@@ -54,12 +53,7 @@ async def advancedContentFlow(websocket: WebSocket, db: Session = Depends(get_db
         handler: WorkflowHandler = workflow.run(topic=data["topic"], research=data["research"])
         
         async for event in handler.stream_events():
-            if isinstance(event, InputRequiredEvent):
-                await websocket.send_json({
-                    "type": "input_required",
-                    "payload": event.payload
-                })
-            elif isinstance(event, ProgressEvent):
+            if isinstance(event, ProgressEvent):
                 await websocket.send_json({
                     "type": "progress_event",
                     "payload": str(event.msg)
