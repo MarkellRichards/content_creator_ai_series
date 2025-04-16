@@ -62,6 +62,18 @@ Part 3 builds upon our initial FastAPI implementation and adds a suite of enhanc
 - DDD tactical patterns and domain oriented folder structure
 - Alembic for database migrations
 
+### Part 4: React. User Interface
+
+Part 4 adds a user interface to our solution. Here's what to expect:
+
+- Scaffolding a React application with Rspack
+- How to use TanStack Router and Query
+- Learn the WebSocket WebAPI
+- Styling a website using Tailwind CSS
+- Setting up CRUD endpoints using FastAPI
+- How to perform joins using SqlAlchemy ORM
+- How to do pagination
+
 ## Contributing
 
 Contributions are welcome! If you have suggestions for improvements or want to contribute new features, please follow these steps:
