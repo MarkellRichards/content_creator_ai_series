@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workflow-app
+spec:
+  selector:
+    matchLabels:
+      app: workflow-app
+  template:
+    metadata:
+      labels:
+        app: workflow-app
+    spec:
+      containers:
+      - name: workflow-app
+        image: docker.io/solstics/homelab:f1
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: docker-hub-secret

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: content-service-config
+data:
+  # TODO refine granularity
+  allowed_hosts: "*" 
+  minio_bucket: "mybucket"

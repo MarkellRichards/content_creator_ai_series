@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workflow-service
+spec:
+  selector:
+    matchLabels:
+      app: workflow-service
+  template:
+    metadata:
+      labels:
+        app: workflow-service
+    spec:
+      containers:
+      - name: workflow-service
+        image: docker.io/solstics/homelab:b1
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "250m"
+          limits:
+            memory: "2Gi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: openai
+              key: openai
+        - name: TAVILY_SEARCH_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: tavily-search
+              key: tavily-search
+
+        - name: MINIO_ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              name: minio
+              key: minio_endpoint
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: minio
+              key: minio_access_key_id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: minio
+              key: minio_access_key
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: content_db_sync
+        - name: ASYNC_DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: postgres
+              key: content_db_async
+        - name: ALLOWED_HOSTS
+          valueFrom:
+            configMapKeyRef:
+              name: content-service-config
+              key: allowed_hosts
+        - name: MINIO_BUCKET_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: content-service-config
+              key: minio_bucket
+      imagePullSecrets:
+      - name: docker-hub-secret

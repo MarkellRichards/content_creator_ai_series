@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: workflow-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: my-content-api.example.local
+    http:
+      paths:
+      - path: /content
+        pathType: Prefix
+        backend:
+          service:
+            name: workflow-service
+            port:
+              number: 80
+
+  - host: my-content.example.local
+    http:
+      paths:
+      - path: /content
+        pathType: Prefix
+        backend:
+          service:
+            name: workflow-app
+            port:
+              number: 80
