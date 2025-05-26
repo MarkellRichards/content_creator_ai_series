@@ -12,11 +12,11 @@ helm upgrade --install cnpg \
   cnpg/cloudnative-pg
 ```
 
-With the operator installed within our cluster we can now setup our database cluster. Following CloudNative PG recommendations, we will dedicate a single PostgresSQL cluster to a single database, entirely managed by a single microservice applicaiton. Per CNPG FAQ, reserving a PostgreSQL instance to a single microserivce owned database enhances:
+With the operator installed within our cluster we can now setup our database cluster. Following CloudNative PG recommendations, we will dedicate a single PostgresSQL cluster to a single database, entirely managed by a single microservice application. Per CNPG FAQ, reserving a PostgreSQL instance to a single microservice owned database enhances:
 
 - Resource management: each database instance CPU and memory can be constrained with alignment to resource management policies at the pod level.
 - Physical continuous backup and Point-In-Time-Recovery(PITR)
-- Applicaiton updates: without impacting other datbase owners
+- Application updates: without impacting other database owners
 - database updates: each application can decide which version of PostgreSQL version to use, independently, and when to upgrade.
 
 ## Create database cluster

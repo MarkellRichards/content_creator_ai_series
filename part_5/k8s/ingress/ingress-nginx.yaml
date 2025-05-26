@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-  - host: my-content-api.example.local
+  - host: my-content-api.homelab.local
     http:
       paths:
       - path: /content
@@ -17,7 +17,7 @@ spec:
             port:
               number: 80
 
-  - host: my-content.example.local
+  - host: my-content.homelab.local
     http:
       paths:
       - path: /content

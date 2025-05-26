@@ -35,7 +35,7 @@ const config = {
 
     path: path.resolve(__dirname, 'dist/content'),
     clean: true,
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash].bundle.js',
     publicPath: isProduction ? '/content/' : '/',
   },
 };
