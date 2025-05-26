@@ -74,7 +74,7 @@ Part 4 adds a user interface to our solution. Here's what to expect:
 - How to perform joins using SqlAlchemy ORM
 - How to do pagination
 
-### Part 4: Kubernetes Deployment
+### Part 5: Kubernetes Deployment
 
 Part 5 we deploy our applications to a Kubernetes cluster. Here's what to expect:
 
